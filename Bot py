@@ -1,0 +1,37 @@
+from flask import Flask, request
+from twilio.twiml.messaging_response import MessagingResponse
+
+app = Flask(__name__)
+
+@app.route("/whatsapp", methods=['POST'])
+def reply_whatsapp():
+    msg = request.form.get('Body')
+    resp = MessagingResponse()
+    
+    if msg == ".menu":
+        # هنا تقدر تجهز قائمة الأوامر أو تتركها فاضية مؤقتًا
+        pass
+    
+    elif msg == ".img":
+        # هنا تقدر تضيف كود إرسال صورة
+        pass
+
+    elif msg == ".apk":
+        # هنا تقدر تضيف كود إرسال ملف APK
+        pass
+    
+    elif msg == ".song":
+        # هنا تقدر تضيف كود إرسال أغنية
+        pass
+
+    elif msg == ".video":
+        # هنا تقدر تضيف كود إرسال فيديو
+        pass
+    
+    else:
+        pass  # بدون رد
+    
+    return str(resp)
+
+if __name__ == "__main__":
+    app.run(
